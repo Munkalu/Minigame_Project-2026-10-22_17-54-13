@@ -1,0 +1,3 @@
+Rules: You start with 5 letters, you can restock on letters by grabbing the letter bag, delivering letters without missing or getting hurt will build your combo. You start with 3 hearts and can lose them by hitting the chimney, the clothes and line of the clothesline, and hitting a wall. You win by surviving till the time is up. Flapping costs 5 stamina and you regain 25 stamina a second while you glide. Letters drop straight below Pip and go straight down.
+The Music i made in BeepBox, the other sounds i got from sfxr.me, the pixel i made myself using Piskel.
+The Ai helped look over a lot of my code to make sure it was correct but it also did help me write the HUDController and the Pause Menu.
