@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class LetterProjectile : MonoBehaviour
 {
+ [SerializeField] AudioClip clip;
    
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){
@@ -12,6 +13,7 @@ public class LetterProjectile : MonoBehaviour
             if(box.delivered == false){
                 box.delivered = true;
                 GameManager.Instance.Deliver();
+                AudioSource.PlayClipAtPoint(clip,transform.position);
             }
             else{
                 GameManager.Instance.Miss();

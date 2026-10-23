@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         }
     }
     void EndGame(bool didWin){
+        SceneManager.LoadScene("Results");
         gameOver = true;
         if(didWin){
             Score += 1000;

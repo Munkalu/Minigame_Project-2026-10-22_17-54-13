@@ -11,8 +11,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject letterPrefab;
     [SerializeField] int maxLetters = 5;
     [SerializeField] float invincibleTime = 1.5f;
+    [SerializeField] AudioClip flapClip;
+    [SerializeField] AudioClip hurtClip;
+    [SerializeField] AudioClip letterClip;
+    [SerializeField] AudioClip dropClip;
     Rigidbody2D rb;
+    AudioSource audioSource;
     float stamina;
+    Animator anim;
     int letters;
     float invincibleTimer;
     public int Letters => letters;
@@ -20,6 +26,8 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         stamina = maxStamina;
         letters = maxLetters;
@@ -33,13 +41,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity =new Vector2(rb.linearVelocity.x, flapStrength);
             stamina -= flapCost;
+            audioSource.PlayOneShot(flapClip);
         }
         if(Input.GetKey(KeyCode.Space) && rb.linearVelocity.y< 0){
             rb.gravityScale = glideGravity;
             stamina += staminaRegen * Time.deltaTime;
+            anim.SetBool("Gliding", true);
         }
         else{
             rb.gravityScale =normalGravity;
+            anim.SetBool("Gliding", false);
         }
         stamina = Mathf.Clamp(stamina, 0f, maxStamina);
         if((Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.DownArrow)) && letters > 0){
@@ -52,11 +63,20 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Obstacle") && invincibleTimer <= 0){
             GameManager.Instance.LoseHeart();
+            anim.SetTrigger("Hurt");
+            audioSource.PlayOneShot(hurtClip);
             invincibleTimer = invincibleTime;
+            if (other.name.StartsWith("Wall")){
+                Vector3 pos = transform.position;
+                pos.y = other.bounds.max.y + .7f;
+                transform.position = pos;
+                rb.linearVelocity = Vector2.zero;
+            }
         }
         if(other.CompareTag("Restock")){
             letters = maxLetters;
             Destroy(other.gameObject);
+            audioSource.PlayOneShot(letterClip);
         }
     }
 }
