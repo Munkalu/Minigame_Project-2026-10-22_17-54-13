@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float normalGravity = 2.5f;
     [SerializeField] float glideGravity = .25f;
     [SerializeField] float maxStamina = 100f;
-    [SerializeField] float flapCost = 15f;
+    [SerializeField] float flapCost = 5f;
     [SerializeField] float staminaRegen = 25f;
     Rigidbody2D rb;
     float stamina;

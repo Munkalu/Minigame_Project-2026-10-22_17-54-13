@@ -252,6 +252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aaf761f2d09c034ba51c4aa6c80f4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  flapStrength: 7
+  normalGravity: 2.5
+  glideGravity: 0.5
+  maxStamina: 100
+  flapCost: 15
+  staminaRegen: 25
 --- !u!1 &519092738
 GameObject:
   m_ObjectHideFlags: 0
