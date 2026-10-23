@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float flapStrength = 7f;
+    [SerializeField] float flapStrength = 8f;
     [SerializeField] float normalGravity = 2.5f;
     [SerializeField] float glideGravity = .25f;
     [SerializeField] float maxStamina = 100f;
-    [SerializeField] float flapCost = 15f;
+    [SerializeField] float flapCost = 5f;
     [SerializeField] float staminaRegen = 25f;
     [SerializeField] GameObject letterPrefab;
     [SerializeField] int maxLetters = 5;
@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     float stamina;
     int letters;
     float invincibleTimer;
+    public int Letters => letters;
+    public float Stamina => stamina;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && stamina>=flapCost)
         {
             rb.linearVelocity =new Vector2(rb.linearVelocity.x, flapStrength);
-            stamina = stamina - flapCost;
+            stamina -= flapCost;
         }
         if(Input.GetKey(KeyCode.Space) && rb.linearVelocity.y< 0){
             rb.gravityScale = glideGravity;

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         lettersDelivered = 0;
         bestCombo = 1;
         finalScore = 0;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
