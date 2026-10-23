@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mailbox
   - Obstacle
+  - Restock
   layers:
   - Default
   - TransparentFX

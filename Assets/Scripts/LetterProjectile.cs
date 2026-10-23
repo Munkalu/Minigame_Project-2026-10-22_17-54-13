@@ -8,7 +8,7 @@ public class LetterProjectile : MonoBehaviour
             return;
         }
         if(other.CompareTag("Mailbox")){
-            Mailbox box = other.getComponent<Mailbox>();
+            Mailbox box = other.GetComponent<Mailbox>();
             if(box.delivered == false){
                 box.delivered = true;
                 GameManager.Instance.Deliver();

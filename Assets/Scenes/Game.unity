@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 106954140}
   m_Layer: 0
   m_Name: Pip Flying_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +258,9 @@ MonoBehaviour:
   maxStamina: 100
   flapCost: 15
   staminaRegen: 25
+  letterPrefab: {fileID: 7559565634846978978, guid: a7c7e020b900d884d816de76b662397b, type: 3}
+  maxLetters: 5
+  invincibleTime: 1.5
 --- !u!1 &280551943
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +662,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1053472153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053472154}
+  - component: {fileID: 1053472155}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1053472154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053472153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.39384, y: -0.75041, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1053472155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053472153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d6c1be900cd6d4983118160ed68a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  maxHearts: 3
+  dayLength: 120
+  pointPerLetter: 100
 --- !u!1 &1096218983
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,11 +994,13 @@ MonoBehaviour:
   - {fileID: 7477882367102012573, guid: dce7f8d2907ee4f4b968657d6558c212, type: 3}
   mailboxPrefab: {fileID: 8611587093891857830, guid: c63db81a380c34045a8edad3fdbe1dc3, type: 3}
   spawnX: 12
-  obstacleInterval: 2
-  mailboxInterval: 3.5
+  spawnInterval: 2
+  mailboxChance: 0.4
   roofLayer:
     serializedVersion: 2
     m_Bits: 64
+  letterBagPrefab: {fileID: 4603229003917361001, guid: 17745e410acf8b34f8605bd759750743, type: 3}
+  letterBagChance: 0.15
 --- !u!1 &1732586104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,3 +1249,4 @@ SceneRoots:
   - {fileID: 1096218985}
   - {fileID: 1732586106}
   - {fileID: 1504761535}
+  - {fileID: 1053472154}
