@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5710593974146969781}
   - component: {fileID: 3168182257514828112}
   - component: {fileID: 8406607436196651971}
+  - component: {fileID: 1384795845072281926}
   m_Layer: 0
   m_Name: Mailbox
   m_TagString: Mailbox
@@ -156,3 +157,15 @@ MonoBehaviour:
   destroyX: -12
   loop: 0
   width: 20
+--- !u!114 &1384795845072281926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8611587093891857830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4dc549c1057424888c75169e660396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mailbox
